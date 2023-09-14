@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+struct node1
+{
+    int data;
+    struct node1* next;
+};
+
+struct node1* head = NULL;
+
+void insert(int new_data)
+{
+    struct node1* new_node = (struct node1*)malloc(sizeof(struct node1));
+    
+    new_node->data = new_data;
+    new_node->next = head;
+    head = new_node;
+}
+
+void display()
+{
+    struct node1* ptr = head;
+    while (ptr != NULL)
+    {
+        cout << ptr->data << " ";
+        ptr = ptr->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    insert(1);
+    insert(2);
+    insert(3);
+
+    cout << "Linked List: ";
+    display();
+
+    return 0;
+}
